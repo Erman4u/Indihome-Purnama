@@ -113,64 +113,61 @@
             <p>Temukan paket yang paling sesuai dengan kebutuhan Anda</p>
         </div>
 
-        <div class="paket-wrapper">
-
+        <div class="paket-wrapper" id="paketWrapper">
             <!-- PHOENIX - POPULER -->
             <div class="paket-card populer">
                 <div class="badge-populer">⭐ Paling Populer</div>
-                <div class="paket-icon">🔥</div>
-                <h3>INTERNET ONLY</h3>
-                <p class="speed">200 Mbps</p>
+                <h3 style="margin-top:10px;">INTERNET ONLY</h3>
+                <p class="speed">Hingga 200 Mbps</p>
                 <p class="paket-desc">Pilihan termurah untuk internet cepat</p>
                 <ul>
+                    <li>✓ Berbagai Pilihan Speed</li>
                     <li>✓ Internet Fiber Cepat</li>
-                    <li>✓ Koneksi Stabil</li>
-                    <li>✓ Support 24 jam</li>
-
+                    <li>✓ Koneksi Stabil 24 Jam</li>
                 </ul>
-                <div class="price">Mulai dari Rp 170.000<span>/bulan</span></div>
-                <a href="https://wa.me/6285187414484?text=Halo%20saya%20ingin%20daftar%20IndiHome%20paket%20internet%20only"
-                    target="_blank">
-                    <button class="btn-paket btn-paket-white">Pilih Paket</button>
-                </a>
+                <div class="price">Mulai Rp 170.000<span>/bln</span></div>
+                <button class="btn-paket btn-paket-white" onclick="bukaModalKategori('INTERNET ONLY')">Pilihan
+                    LENGKAP</button>
             </div>
 
-            <!-- GAMER -->
+            <!-- GAMER/STB TV -->
             <div class="paket-card">
-                <div class="paket-icon">🎮</div>
-                <h3>INTERNET + STB TV</h3>
-                <p class="speed">200 Mbps</p>
-                <p class="paket-desc">Paket lengkap untuk internet dan hiburan</p>
+                <h3 style="margin-top:10px;">INTERNET + STB TV</h3>
+                <p class="speed">Paket Hiburan</p>
+                <p class="paket-desc">Koneksi stabil dan hiburan keluarga</p>
                 <ul>
-                    <li>✓ Internet Cepat</li>
-                    <li>✓ Pilihan Channel TV</li>
-                    <li>✓ Koneksi Stabil</li>
+                    <li>✓ Berbagai Pilihan Speed</li>
+                    <li>✓ Pilihan Channel TV Lokal/Intl</li>
+                    <li>✓ Koneksi Kuat & Stabil</li>
                 </ul>
-                <div class="price">Mulai dari Rp 345.000<span>/bulan</span></div>
-                <a href="https://wa.me/6285187414484?text=Halo%20saya%20ingin%20daftar%20IndiHome%20paket%20internet%20stb"
-                    target="_blank">
-                    <button class="btn-paket">Pilih Paket</button>
-                </a>
+                <div class="price">Mulai Rp 345.000<span>/bln</span></div>
+                <button class="btn-paket" onclick="bukaModalKategori('INTERNET + STB TV')">Pilihan LENGKAP</button>
             </div>
 
-            <!-- INTERNET ONLY -->
+            <!-- KUOTA 15GB -->
             <div class="paket-card">
-                <div class="paket-icon">💻</div>
-                <h3>INTERNET + KUOTA 15 GB</h3>
-                <p class="speed">300 Mbps</p>
-                <p class="paket-desc">Hemat tanpa tambahan layanan TV</p>
+                <h3 style="margin-top:10px;">INTERNET + KUOTA</h3>
+                <p class="speed">Harga Hemat</p>
+                <p class="paket-desc">Internet tanpa tambahan layanan TV</p>
                 <ul>
-                    <li>✓ Internet Cepat</li>
-                    <li>✓ Kuota 15 GB</li>
-                    <li>✓ Koneksi Cepat</li>
+                    <li>✓ Berbagai Pilihan Speed</li>
+                    <li>✓ Tambahan Kuota HP</li>
+                    <li>✓ Paling Fleksibel</li>
                 </ul>
-                <div class="price">Mulai dari Rp 270.000<span>/bulan</span></div>
-                <a href="https://wa.me/6285187414484?text=Halo%20saya%20ingin%20daftar%20IndiHome%20paket%20Internet%20kuota"
-                    target="_blank">
-                    <button class="btn-paket">Pilih Paket</button>
-                </a>
+                <div class="price">Mulai Rp 270.000<span>/bln</span></div>
+                <button class="btn-paket" onclick="bukaModalKategori('INTERNET + KUOTA 15 GB')">Pilihan LENGKAP</button>
             </div>
+        </div>
 
+        <!-- MODAL DAFTAR PAKET -->
+        <div id="paketModal" class="modal">
+            <div class="modal-content" style="max-width: 600px;">
+                <span class="close-modal" onclick="tutupModal()">&times;</span>
+                <h2 id="modalTitle" style="margin-bottom: 20px;">Daftar Paket</h2>
+                <div id="modalListContainer">
+                    <p style="text-align:center;">Memuat data dari server...</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -468,6 +465,78 @@
                 + "No HP : " + encodeURIComponent(hp);
 
             window.open("https://wa.me/" + nomor + "?text=" + pesan, '_blank');
+        }
+
+        // SCRIPT DB PAKET
+        let paketSemua = [];
+
+        // Coba ambil array full dari server API
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzL-P5x6HGtOEvBgW9_hghu8ZD9tOqnEJFtw4eIcbI6UcNnlt1lyYjInd5FhkAqQUtkvA/exec';
+
+        if (GOOGLE_SCRIPT_URL) {
+            const fetchUrl = (GOOGLE_SCRIPT_URL.includes('?') ? GOOGLE_SCRIPT_URL + '&action=api' : GOOGLE_SCRIPT_URL + '?action=api') + '&t=' + new Date().getTime();
+            fetch(fetchUrl)
+                .then(res => res.json())
+                .then(res => {
+                    if (res.status === 'success' && res.data.length > 0) {
+                        paketSemua = res.data;
+                    }
+                }).catch(err => console.log('Gagal menghubungkan ke Apps Script.', err));
+        }
+
+        // MODAL LOGIC
+        const modal = document.getElementById("paketModal");
+        const listContainer = document.getElementById("modalListContainer");
+
+        function bukaModalKategori(namaKategori) {
+            document.getElementById('modalTitle').innerText = `Paket: ${namaKategori}`;
+
+            // Filter array dengan kategori yang diklik
+            const filtered = paketSemua.filter(p => (p.kategori || '').trim().toUpperCase() === namaKategori.replace(/\s+/g, ' ').trim().toUpperCase());
+
+            listContainer.innerHTML = '';
+
+            if (paketSemua.length === 0) {
+                listContainer.innerHTML = '<p style="text-align:center;">Data belum dimuat sepenuhnya atau gagal terhubung ke Apps Script. Pastikan URL Apps Script sudah benar dan sudah di-Deploy versi baru.</p>';
+            } else if (filtered.length === 0) {
+                listContainer.innerHTML = `<p style="text-align:center;">Tidak ada paket dengan kategori <b>${namaKategori}</b>.<br><br><small style="color:red;">Info Admin: Koneksi berhasil namun data kategori paket kosong. Silakan masuk ke Dashboard Admin, klik Edit pada paketmu, lalu pastikan kamu memilih & menyimpan "Kategori" paketnya.</small></p>`;
+            } else {
+                filtered.forEach(p => {
+                    const priceFormatted = 'Rp ' + p.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                    const isPopuler = p.populer === 'true' || p.populer === true;
+                    const bgeStyle = isPopuler ? 'background: #fff8f8; border: 1px solid #ffcccc;' : 'background: #f8f9fa; border: 1px solid #ddd;';
+
+                    const elHTML = `
+                        <div style="${bgeStyle} border-radius:6px; padding:12px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h3 style="margin:0 0 6px 0; font-size:15px; color:#e60000;">${p.nama} ${p.kecepatan ? `(${p.kecepatan})` : ''} ${isPopuler ? '<span style="font-size:10px; font-weight:normal; background:#e60000; color:white; padding:2px 4px; border-radius:4px; margin-left:4px;">⭐ Populer</span>' : ''}</h3>
+                                <div style="font-size:16px; font-weight:800; color:#333;">${priceFormatted}<span style="font-size:11px; font-weight:500;">/bln</span></div>
+                            </div>
+                            <button onclick="pesanKustomWA('${encodeURIComponent(p.nama)}', '${encodeURIComponent(p.kecepatan)}', '${priceFormatted}')" style="background:#e60000; color:white; border:none; padding:8px 16px; border-radius:4px; font-weight:600; font-size: 13px; cursor:pointer; flex-shrink: 0; margin-left: 10px;">Pilih Paket</button>
+                        </div>
+                    `;
+                    listContainer.innerHTML += elHTML;
+                });
+            }
+            modal.style.display = "flex";
+        }
+
+        function tutupModal() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                tutupModal();
+            }
+        }
+
+        function pesanKustomWA(namaUrl, speedUrl, formatHarga) {
+            const nama = decodeURIComponent(namaUrl);
+            const speed = decodeURIComponent(speedUrl);
+            const pesan = `Halo, saya tertarik dengan %0A%0A*Paket*: ${nama} (${speed})%0A*Harga*: ${formatHarga}/bulan%0A%0AMohon info lebih lanjut tentang ketersediaan jaringan. Terima kasih.`;
+
+            window.open("https://wa.me/6285187414484?text=" + pesan, '_blank');
         }
 
         // SMOOTH SCROLL
