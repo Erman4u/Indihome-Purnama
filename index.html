@@ -210,24 +210,6 @@
                     onclick="bukaModal('internet-saja')">Lihat Semua Pilihan</button>
             </div>
 
-            <!-- INTERNET + STB TV -->
-            <div class="paket-card">
-                <div class="paket-icon-wrap">
-                    <i data-lucide="monitor-play" class="icon-paket"></i>
-                </div>
-                <h3>Internet + STB TV</h3>
-                <p class="speed">Paket Hiburan</p>
-                <p class="paket-desc">Internet kencang + TV interaktif untuk keluarga</p>
-                <ul>
-                    <li><i data-lucide="check" class="icon-check"></i> 4 Pilihan Kecepatan Speed</li>
-                    <li><i data-lucide="check" class="icon-check"></i> Set Top Box TV Interaktif</li>
-                    <li><i data-lucide="check" class="icon-check"></i> Channel Lokal &amp; Internasional</li>
-                </ul>
-                <div class="price">Mulai Rp 345.000<span>/bln</span></div>
-                <button class="btn-paket" id="btn-internet-stb" onclick="bukaModal('internet-stb')">Lihat Semua
-                    Pilihan</button>
-            </div>
-
             <!-- INTERNET + KUOTA HP -->
             <div class="paket-card">
                 <div class="paket-icon-wrap">
@@ -243,6 +225,42 @@
                 </ul>
                 <div class="price">Mulai Rp 270.000<span>/bln</span></div>
                 <button class="btn-paket" id="btn-internet-kuota" onclick="bukaModal('internet-kuota')">Lihat Semua
+                    Pilihan</button>
+            </div>
+
+            <!-- INDIHOME + GAME -->
+            <div class="paket-card">
+                <div class="paket-icon-wrap">
+                    <i data-lucide="gamepad-2" class="icon-paket"></i>
+                </div>
+                <h3>IndiHome + Game</h3>
+                <p class="speed">Gamer Edition</p>
+                <p class="paket-desc">Internet kencang + Low Latency untuk Game</p>
+                <ul>
+                    <li><i data-lucide="check" class="icon-check"></i> Bebas Akses Aplikasi Digital/OTT</li>
+                    <li><i data-lucide="check" class="icon-check"></i> Akses Kuncie</li>
+                    <li><i data-lucide="check" class="icon-check"></i> Voucher Game</li>
+                </ul>
+                <div class="price">Mulai Rp 290.000<span>/bln</span></div>
+                <button class="btn-paket" id="btn-internet-game" onclick="bukaModal('internet-game')">Lihat Semua
+                    Pilihan</button>
+            </div>
+
+            <!-- INTERNET + STB TV -->
+            <div class="paket-card">
+                <div class="paket-icon-wrap">
+                    <i data-lucide="monitor-play" class="icon-paket"></i>
+                </div>
+                <h3>Internet + STB TV</h3>
+                <p class="speed">Paket Hiburan</p>
+                <p class="paket-desc">Internet kencang + TV interaktif untuk keluarga</p>
+                <ul>
+                    <li><i data-lucide="check" class="icon-check"></i> 4 Pilihan Kecepatan Speed</li>
+                    <li><i data-lucide="check" class="icon-check"></i> Set Top Box TV Interaktif</li>
+                    <li><i data-lucide="check" class="icon-check"></i> Channel Lokal &amp; Internasional</li>
+                </ul>
+                <div class="price">Mulai Rp 345.000<span>/bln</span></div>
+                <button class="btn-paket" id="btn-internet-stb" onclick="bukaModal('internet-stb')">Lihat Semua
                     Pilihan</button>
             </div>
         </div>
@@ -301,7 +319,7 @@
                 <div class="step-content">
                     <div class="step-icon"><i data-lucide="file-text" class="icon-step"></i></div>
                     <h3>Kirim Data Pendaftaran</h3>
-                    <p>Kirim foto KTP dan share lokasi via Google Maps untuk proses verifikasi dan pengajuan.</p>
+                    <p>Kirim data awal dan share lokasi untuk proses verifikasi dan pengajuan.</p>
                 </div>
             </div>
 
@@ -310,7 +328,7 @@
                 <div class="step-content">
                     <div class="step-icon"><i data-lucide="wrench" class="icon-step"></i></div>
                     <h3>Teknisi Survey &amp; Pasang</h3>
-                    <p>Teknisi Telkom profesional akan datang ke rumahmu untuk survey dan melakukan pemasangan.</p>
+                    <p>Teknisi Indihome profesional akan datang ke rumahmu untuk survey dan melakukan pemasangan.</p>
                 </div>
             </div>
 
@@ -318,8 +336,9 @@
                 <div class="step-number">5</div>
                 <div class="step-content">
                     <div class="step-icon"><i data-lucide="badge-check" class="icon-step"></i></div>
-                    <h3>Validasi dari CS Telkom</h3>
-                    <p>Setelah instalasi selesai, kamu akan dihubungi CS Telkom Pusat. Info tagihan dikirim ke email.
+                    <h3>Uji Coba Internet</h3>
+                    <p>Setelah instalasi selesai, internet akan di uji coba semantara dan jika sudah sesuai standar
+                        layanan, tagihan biaya awal akan dikirim ke email.
                     </p>
                 </div>
             </div>
@@ -329,7 +348,7 @@
                 <div class="step-content">
                     <div class="step-icon"><i data-lucide="rocket" class="icon-step"></i></div>
                     <h3>Bayar &amp; Internet Langsung Aktif!</h3>
-                    <p>Lakukan pembayaran pertama maks. 3×24 jam — internet langsung aktif dan siap digunakan.</p>
+                    <p>Lakukan pembayaran biaya awal maks. 1×24 jam — internet langsung aktif dan siap digunakan.</p>
                 </div>
             </div>
 
@@ -600,7 +619,7 @@
             'internet-stb': {
                 title: 'Internet + STB TV',
                 icon: 'monitor-play',
-                subtitle: 'Biaya pasang baru Rp 99.000 (sekali bayar) · Harga belum termasuk PPN 11%',
+                subtitle: 'Biaya pasang baru Rp 99.000 (sekali bayar) · Harga belum termasuk PPN 11% (Pemasangan dengan deposit yang di bayar di muka)',
                 items: [
                     { speed: '50 Mbps', harga: 345000 },
                     { speed: '75 Mbps', harga: 365000, populer: true },
@@ -617,6 +636,17 @@
                     { speed: '75 Mbps', harga: 285000, populer: true },
                     { speed: '150 Mbps', harga: 355000 },
                     { speed: '300 Mbps', harga: 888000 },
+                ]
+            },
+            'internet-game': {
+                title: 'IndiHome + Game',
+                icon: 'gamepad-2',
+                subtitle: 'Biaya pasang baru Rp 99.000 (sekali bayar) · Harga belum termasuk PPN 11%',
+                items: [
+                    { speed: '50 Mbps', harga: 290000 },
+                    { speed: '75 Mbps', harga: 310000, populer: true },
+                    { speed: '150 Mbps', harga: 385000 },
+                    { speed: '200 Mbps', harga: 550000 },
                 ]
             }
         };
@@ -656,7 +686,9 @@
                             ${item.speed} ${populerBadge}
                         </div>
                         <div style="font-size:18px; font-weight:900; color:#e60000;">${hargaFmt}<span style="font-size:11px; font-weight:500; color:#666;">/bln</span></div>
-                        <div style="font-size:11px; color:#e60000; margin-top:2px; font-weight:600;">*Belum termasuk PPN 11%</div>
+                        <div style="font-size:11px; color:#e60000; margin-top:2px; font-weight:600;">
+                            *Belum termasuk PPN 11% ${kategori === 'internet-stb' ? '& Biaya Jaminan Deposit' : ''}
+                        </div>
                     </div>
                     <a href="https://wa.me/6285187414484?text=${pesanText}" target="_blank" style="text-decoration:none;">
                         <button style="background:#e60000; color:white; border:none; padding:10px 18px; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer; flex-shrink:0; white-space:nowrap;">
