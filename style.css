@@ -1207,18 +1207,18 @@ footer {
   display: flex;
   align-items: center;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--gray-600);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid var(--gray-100);
   text-align: center;
   padding: 22px 28px;
 }
 
 .footer-bottom p {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--gray-500);
 }
 
 /* ==========================================
