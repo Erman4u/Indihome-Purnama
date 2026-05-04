@@ -113,16 +113,16 @@ function tutupModal() {
 // ============================================
 // KIRIM WA - CEK JARINGAN
 // ============================================
-function kirimWA() {
-    const nama = document.getElementById('nama').value.trim();
+function kirimWA(el) {
+    const nama   = document.getElementById('nama').value.trim();
     const alamat = document.getElementById('alamat').value.trim();
     const lokasi = document.getElementById('lokasi').value.trim();
-    const paket = document.getElementById('paket').value.trim();
-    const hp = document.getElementById('hp').value.trim();
+    const paket  = document.getElementById('paket').value.trim();
+    const hp     = document.getElementById('hp').value.trim();
 
     if (!nama || !alamat || !hp) {
-        alert('Mohon isi nama, alamat, dan nomor HP terlebih dahulu.');
-        return;
+        alert('Mohon isi Nama, Alamat, dan Nomor HP terlebih dahulu.');
+        return false; // batalkan navigasi
     }
 
     const pesan = encodeURIComponent(
@@ -135,8 +135,9 @@ function kirimWA() {
         `Mohon dicek ketersediaan jaringannya. Terima kasih!`
     );
 
-    const url = 'https://api.whatsapp.com/send?phone=6285187414484&text=' + pesan;
-    window.location.href = url;
+    // Set href langsung pada elemen anchor agar browser buka WA secara native
+    el.href = 'https://wa.me/6285187414484?text=' + pesan;
+    return true; // lanjutkan klik link
 }
 
 // ============================================
