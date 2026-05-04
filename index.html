@@ -554,10 +554,10 @@
                     </label>
                     <input type="text" id="hp" placeholder="Contoh: 0812xxxxxxxx">
                 </div>
-                <button class="btn-cek" id="btnCekJaringan" onclick="kirimWA()">
+                <a href="javascript:void(0)" onclick="kirimWA()" class="btn-cek" id="btnCekJaringan" style="text-decoration: none;">
                     <i data-lucide="search" class="icon-sm"></i>
                     Cek Jaringan via WhatsApp
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -776,7 +776,8 @@
                 `Mohon dicek ketersediaan jaringannya. Terima kasih!`
             );
 
-            window.location.href = 'https://wa.me/6285187414484?text=' + pesan;
+            const url = 'https://api.whatsapp.com/send?phone=6285187414484&text=' + pesan;
+            window.location.href = url;
         }
 
         // ============================================

@@ -1339,12 +1339,12 @@ footer {
   }
 
   .footer-brand { grid-column: 1; }
+
+  .wa-float span { display: none; }
+  .wa-float { padding: 14px; border-radius: 50%; bottom: 20px; right: 20px; }
 }
 
 @media (max-width: 480px) {
-
-  .wa-float span { display: none; }
-  .wa-float { padding: 14px; border-radius: 50%; }
 
   .btn-primary,
   .btn-outline {
