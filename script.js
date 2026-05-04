@@ -104,10 +104,12 @@ function bukaModal(kategori) {
 
     document.getElementById('modalListContainer').innerHTML = html;
     document.getElementById('paketModal').style.display = 'flex';
+    document.body.classList.add('no-scroll');
 }
 
 function tutupModal() {
     document.getElementById('paketModal').style.display = 'none';
+    document.body.classList.remove('no-scroll');
 }
 
 // ============================================
