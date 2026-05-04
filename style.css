@@ -231,6 +231,8 @@ body {
   gap: 4px;
 }
 
+.nav-close { display: none; }
+
 .nav-links a {
   color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
@@ -259,7 +261,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* HAMBURGER */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -268,6 +269,8 @@ body {
   border: none;
   cursor: pointer;
   padding: 4px;
+  position: relative;
+  z-index: 1001;
 }
 
 .hamburger span {
@@ -1257,6 +1260,29 @@ footer {
 
   .nav-links.active { display: flex; }
 
+  .nav-close {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: white;
+    font-size: 28px;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+
+  .nav-close:hover {
+    background: rgba(255,255,255,0.25);
+  }
+
   .nav-links a {
     font-size: 20px;
     font-weight: 600;
@@ -1321,7 +1347,7 @@ footer {
   .faq { padding: 64px 16px; }
 
   /* CEK */
-  .cek-odp { padding: 64px 16px; }
+  .cek-odp { padding: 64px 16px 120px; }
   .cek-form { padding: 28px 20px; }
 
   /* FOOTER */
@@ -1366,11 +1392,13 @@ footer {
   z-index: 2000;
   left: 0; top: 0;
   width: 100%; height: 100%;
-  overflow: auto;
+  overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(6px);
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding: 40px 16px;
+  box-sizing: border-box;
 }
 
 .modal-content {
