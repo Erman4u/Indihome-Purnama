@@ -147,11 +147,13 @@ body {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: none;
+  will-change: auto; /* hapus hint setelah animasi selesai */
 }
 
 /* ==========================================
@@ -174,7 +176,8 @@ body {
   font-size: 14px;
   box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
   z-index: 9999;
-  transition: var(--transition);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
   animation: pulse-wa 2.5s infinite;
 }
 
@@ -183,9 +186,10 @@ body {
   box-shadow: 0 16px 40px rgba(37, 211, 102, 0.55);
 }
 
+/* Animasi pakai scale + opacity — berjalan di GPU, tidak menyebabkan reflow */
 @keyframes pulse-wa {
-  0%, 100% { box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45); }
-  50% { box-shadow: 0 8px 40px rgba(37, 211, 102, 0.7), 0 0 0 8px rgba(37, 211, 102, 0.1); }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.04); opacity: 0.92; }
 }
 
 /* ==========================================
@@ -298,7 +302,7 @@ body {
   background-image: url('image/indi.webp');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  /* background-attachment: fixed DIHAPUS — sangat berat di mobile, mematikan GPU compositing */
   display: flex;
   align-items: center;
   padding: 120px 28px 80px;
