@@ -86,7 +86,6 @@
             </button>
 
             <nav class="nav-links" id="navLinks">
-                <button class="nav-close" id="navClose" aria-label="Tutup Menu">&times;</button>
                 <a href="#home">Home</a>
                 <a href="#paket">Paket</a>
                 <a href="#cara">Cara Pasang</a>
@@ -717,22 +716,19 @@
         // ============================================
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
-        const navClose = document.getElementById('navClose');
-
-        function closeNav() {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('open');
-        }
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('open');
+            document.body.classList.toggle('no-scroll');
         });
 
-        navClose.addEventListener('click', closeNav);
-
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', closeNav);
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('open');
+                document.body.classList.remove('no-scroll');
+            });
         });
 
         // ============================================

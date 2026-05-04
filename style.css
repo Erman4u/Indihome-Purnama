@@ -46,6 +46,10 @@ body {
   overflow-x: hidden;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 /* ==========================================
    ICON SIZES (Lucide)
    ========================================== */
@@ -230,8 +234,6 @@ body {
   align-items: center;
   gap: 4px;
 }
-
-.nav-close { display: none; }
 
 .nav-links a {
   color: rgba(255, 255, 255, 0.88);
@@ -1259,29 +1261,6 @@ footer {
   }
 
   .nav-links.active { display: flex; }
-
-  .nav-close {
-    display: flex;
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    background: rgba(255,255,255,0.15);
-    border: 1.5px solid rgba(255,255,255,0.3);
-    color: white;
-    font-size: 28px;
-    line-height: 1;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-  }
-
-  .nav-close:hover {
-    background: rgba(255,255,255,0.25);
-  }
 
   .nav-links a {
     font-size: 20px;
