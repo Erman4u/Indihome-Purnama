@@ -111,7 +111,36 @@ function tutupModal() {
 }
 
 // ============================================
-// EVENT LISTENERS
+// KIRIM WA - CEK JARINGAN
+// ============================================
+function kirimWA() {
+    const nama = document.getElementById('nama').value.trim();
+    const alamat = document.getElementById('alamat').value.trim();
+    const lokasi = document.getElementById('lokasi').value.trim();
+    const paket = document.getElementById('paket').value.trim();
+    const hp = document.getElementById('hp').value.trim();
+
+    if (!nama || !alamat || !hp) {
+        alert('Mohon isi nama, alamat, dan nomor HP terlebih dahulu.');
+        return;
+    }
+
+    const pesan = encodeURIComponent(
+        `Halo, saya ingin cek ketersediaan jaringan IndiHome di Yogyakarta\n\n` +
+        `Nama      : ${nama}\n` +
+        `Alamat    : ${alamat}\n` +
+        `Lokasi    : ${lokasi || '-'}\n` +
+        `Paket     : ${paket || 'Belum ditentukan'}\n` +
+        `No HP     : ${hp}\n\n` +
+        `Mohon dicek ketersediaan jaringannya. Terima kasih!`
+    );
+
+    const url = 'https://api.whatsapp.com/send?phone=6285187414484&text=' + pesan;
+    window.location.href = url;
+}
+
+// ============================================
+// INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
     // Lucide Icons
@@ -150,36 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isOpen) item.classList.add('active');
         });
     });
-
-    // Kirim WA - Cek Jaringan
-    const btnCek = document.getElementById('btnCekJaringan');
-    if (btnCek) {
-        btnCek.addEventListener('click', () => {
-            const nama = document.getElementById('nama').value.trim();
-            const alamat = document.getElementById('alamat').value.trim();
-            const lokasi = document.getElementById('lokasi').value.trim();
-            const paket = document.getElementById('paket').value.trim();
-            const hp = document.getElementById('hp').value.trim();
-
-            if (!nama || !alamat || !hp) {
-                alert('Mohon isi nama, alamat, dan nomor HP terlebih dahulu.');
-                return;
-            }
-
-            const pesan = encodeURIComponent(
-                `Halo, saya ingin cek ketersediaan jaringan IndiHome di Yogyakarta\n\n` +
-                `Nama      : ${nama}\n` +
-                `Alamat    : ${alamat}\n` +
-                `Lokasi    : ${lokasi || '-'}\n` +
-                `Paket     : ${paket || 'Belum ditentukan'}\n` +
-                `No HP     : ${hp}\n\n` +
-                `Mohon dicek ketersediaan jaringannya. Terima kasih!`
-            );
-
-            const url = 'https://api.whatsapp.com/send?phone=6285187414484&text=' + pesan;
-            window.location.href = url;
-        });
-    }
 
     // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

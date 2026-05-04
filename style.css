@@ -1132,8 +1132,9 @@ body {
    ========================================== */
 
 footer {
-  background: #0d0d0d;
-  color: white;
+  background: white;
+  color: var(--black);
+  border-top: 1px solid var(--gray-200);
 }
 
 .footer-container {
@@ -1147,7 +1148,7 @@ footer {
 
 .footer-brand p {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--gray-600);
   margin-top: 14px;
   line-height: 1.75;
   max-width: 260px;
@@ -1159,7 +1160,7 @@ footer {
 .footer-contact h4 {
   font-size: 11px;
   font-weight: 700;
-  color: rgba(255,255,255,0.4);
+  color: var(--gray-400);
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1173,13 +1174,13 @@ footer {
 
 .footer-links a {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--gray-600);
   text-decoration: none;
   transition: var(--transition);
 }
 
 .footer-links a:hover {
-  color: white;
+  color: var(--red);
   padding-left: 6px;
 }
 
